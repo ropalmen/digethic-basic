@@ -1,0 +1,22 @@
+name: model-training
+run-name: ${{ github.actor }} is learning GitHub Actions
+on: [push]
+jobs:
+  train-model:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Python Setup
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install Requirements
+        run: pip install -r requirements.txt
+      - name: Train model
+        run: python src/train.py
+      - name: Save trained model
+        uses: actions/upload-artifact@v3
+        with:
+          name: linreg2.pickle
+          path: data/models/linreg2.pickle

@@ -22,6 +22,8 @@ reg = reg.fit(x_train, y_train)
 pred = reg.predict(x_test)
 
 #Speichern der Datei
+os.remove("data/models/linreg2.pickle")
+os.rmdir("data/models")
 os.mkdir("data/models")
 file = open("data/models/linreg2.pickle", "wb")
 pickle.dump(reg, file)
