@@ -12,7 +12,7 @@ x = df.drop(['mpg'], axis=1)
 y = df['mpg']
 
 #Aufteilen Testdaten
-x_train, x_test, y_train, y_test = train_test_split(x, x, test_size=0.2)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2)
 
 #Lineare Regression
 reg = LinearRegression()
@@ -23,5 +23,5 @@ pred = reg.predict(x_test)
 
 #Speichern der Datei
 os.mkdir("data/models")
-file = open("data/models/linreg.pickle", "wb")
+file = open("data/models/linreg2.pickle", "wb")
 pickle.dump(reg, file)
