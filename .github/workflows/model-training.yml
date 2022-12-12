@@ -1,6 +1,6 @@
 name: model-training
-run-name: ${{ github.actor }} is learning GitHub Actions
-on: [push]
+run-name: Model Training
+on: pull_request
 jobs:
   train-model:
     runs-on: ubuntu-latest
